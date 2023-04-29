@@ -27,17 +27,15 @@ export class TodolistComponent {
     {
       this.data.addTask(this.task).subscribe({
         next:(res)=>{
-          console.log(res);
           this.getData();
           this.task = new TodoData;
           this.addToggle = true;
+          this.toastr.success('Success..', 'Successfuly Added Data..',{timeOut: 00});
         },
         error:(err)=>{
-          console.log(err);
+          this.toastr.error('Error!', ''+err);
         },
-        complete:()=>{
-          console.log('SuccessFully Add Data');
-        }
+        complete:()=>{}
       })
     }
    
@@ -49,11 +47,9 @@ export class TodolistComponent {
         this.taskCollect = res;
       },
       error:(err)=>{
-        console.log(err);
+        this.toastr.error('Error!', ''+err);
       },
-      complete:()=>{
-        console.log('SuccessFully Data Get');
-      }
+      complete:()=>{}
     });
   }
 
@@ -61,17 +57,14 @@ export class TodolistComponent {
   deleteData(data:any){
     this.data.deleteTask(data.id).subscribe({
       next:(res:any)=>{
-        console.log(res);
         this.getData();
         this.task = new TodoData;
         this.addToggle = true;
       },
       error:(err)=>{
-        console.log(err);
+        this.toastr.error('Error!', ''+err);
       },
-      complete:()=>{
-        console.log('SuccessFully Delete Data');
-      }
+      complete:()=>{}
     });
   }
 
@@ -85,19 +78,23 @@ export class TodolistComponent {
     {
       this.data.editTask(this.task).subscribe({
         next:(res:any)=>{
-          console.log(res);
           this.task = new TodoData;
           this.addToggle = true;
         },
         error:(err)=>{
-          console.log(err);
+          this.toastr.error('Error!', ''+err);
         },
+        complete:()=>{}
       });
     }
     else
     {
-      this.toastr.success('Hello world!', 'Toastr fun!');
+      this.toastr.warning('Warning!', 'Please You can Add Anything Task Data! Otherwise You can not update emty task....');
     }
     }
 
+    cancleData(){
+      this.task = new TodoData;
+      this.addToggle = true;
+    }
 }     
