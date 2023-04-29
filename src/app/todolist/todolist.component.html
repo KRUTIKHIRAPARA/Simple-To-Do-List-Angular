@@ -24,6 +24,7 @@
         <input type="text" class="form-control input-box ps-3" name="task" [(ngModel)]="task.taskName" placeholder="Enter Your Task">
         <button type="button" (click)="addData()" *ngIf="addToggle" class="btn btn-primary px-3 ms-2 add-button"> &plus;</button>
         <button type="button" (click)="editData()" *ngIf="!addToggle" class="btn btn-primary px-3 ms-2 add-button"> U </button>
+        <button type="button" (click)="cancleData()" *ngIf="!addToggle" class="btn btn-primary px-3 ms-2 add-button"> X </button>
       </div>
     </form>
   </div>

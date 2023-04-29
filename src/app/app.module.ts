@@ -20,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

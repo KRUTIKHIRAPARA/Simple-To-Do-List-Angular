@@ -30,7 +30,7 @@ export class TodolistComponent {
           this.getData();
           this.task = new TodoData;
           this.addToggle = true;
-          this.toastr.success('Success..', 'Successfuly Added Data..',{timeOut: 00});
+          this.toastr.success('Success..', 'Successfuly Added Data..');
         },
         error:(err)=>{
           this.toastr.error('Error!', ''+err);
