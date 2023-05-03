@@ -38,6 +38,9 @@ export class TodolistComponent {
         complete:()=>{}
       })
     }
+    else{
+      this.toastr.warning('Warning!', 'Please Enter Your Task!!');
+    }
    
   }
 
@@ -95,6 +98,7 @@ export class TodolistComponent {
 
     cancleData(){
       this.task = new TodoData;
+      this.getData();
       this.addToggle = true;
     }
 }     
